@@ -21,19 +21,10 @@
 html{scroll-behavior:smooth;scroll-padding-top:84px;}
 body{font-family:'Inter',sans-serif;background:var(--white);color:var(--text);overflow-x:hidden;-webkit-font-smoothing:antialiased;}
 
-/* BRAND LOGO */
-.nav-logo-brand{display:flex;flex-direction:column;gap:2px;}
-.brand-line{display:flex;align-items:baseline;gap:9px;line-height:1;}
-.brand-dysa{font-family:'Playfair Display',serif;font-size:30px;font-weight:700;color:var(--blue-deep);letter-spacing:2px;line-height:1;display:inline-block;transform:scaleX(1.22);transform-origin:left center;}
-.brand-seguros{font-family:'Playfair Display',serif;font-size:16px;font-weight:500;color:var(--blue-mid);letter-spacing:.5px;font-style:italic;}
-.brand-loc{font-size:9px;color:var(--blue-bright);letter-spacing:3px;text-transform:uppercase;font-weight:600;padding-left:2px;}
-
 /* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:200;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 5%;background:rgba(255,255,255,0.96);backdrop-filter:blur(16px);border-bottom:1px solid var(--border-light);box-shadow:var(--shadow-sm);transition:box-shadow .3s;}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none;}
 .nav-logo-icon{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,var(--blue-deep),var(--blue-mid));display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px rgba(11,37,69,0.25);flex-shrink:0;}
-.nav-logo-text strong{display:block;font-size:17px;font-weight:700;color:var(--blue-deep);letter-spacing:-.3px;}
-.nav-logo-text span{display:block;font-size:10px;color:var(--blue-bright);letter-spacing:2px;text-transform:uppercase;margin-top:2px;}
 .nav-links{display:flex;align-items:center;gap:4px;list-style:none;}
 .nav-links li{position:relative;}
 .nav-links a{padding:8px 14px;border-radius:var(--r-sm);color:var(--text-muted);text-decoration:none;font-size:13px;font-weight:500;transition:color .2s,background .2s,transform .2s;display:block;position:relative;}
@@ -59,10 +50,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:72px;display:flex;ali
 .geo-line:nth-child(6){width:100%;height:1px;left:0;top:40%;}
 .hero-blob{position:absolute;right:0;top:0;width:55%;height:100%;background:linear-gradient(135deg,rgba(30,111,217,.15) 0%,rgba(255,255,255,.04) 100%);clip-path:polygon(20% 0%,100% 0%,100% 100%,0% 100%);}
 .hero-content{position:relative;z-index:2;max-width:560px;flex-shrink:1;}
-@keyframes heroIn{from{opacity:0;transform:translateY(32px);}to{opacity:1;transform:translateY(0);}}
-.hero-tag{display:inline-flex;align-items:center;gap:8px;padding:6px 14px;border-radius:100px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);color:rgba(255,255,255,0.7);font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;margin-bottom:32px;}
-.tag-dot{width:6px;height:6px;border-radius:50%;background:#4DA3FF;animation:blink 2s infinite;}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:.4;}}
 .hero h1{font-family:'Playfair Display',serif;font-size:clamp(44px,6vw,78px);font-weight:600;line-height:1.08;color:var(--white);margin-bottom:28px;letter-spacing:-.5px;}
 .hero h1 .accent{color:#6FB8FF;font-style:italic;}
 .hero-sub{font-size:18px;line-height:1.75;color:rgba(255,255,255,0.6);max-width:500px;margin-bottom:48px;}
@@ -103,7 +90,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;height:72px;display:flex;ali
 .stats-strip{background:var(--white);border-bottom:1px solid var(--border);display:grid;grid-template-columns:repeat(4,1fr);}
 .stat-cell{padding:36px 20px;text-align:center;border-right:1px solid var(--border);}
 .stat-cell:last-child{border-right:none;}
-@keyframes fadeUp{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
 .stat-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:700;color:var(--blue-deep);line-height:1;margin-bottom:6px;}
 .stat-lbl{font-size:12px;color:var(--text-muted);letter-spacing:1.5px;text-transform:uppercase;font-weight:500;}
 
@@ -1368,8 +1354,7 @@ gsap.registerPlugin(ScrollTrigger);
    Cada elemento del hero entra escalonado con ease suave                 */
 const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' }, delay: 0.15 });
 heroTl
-  .from('.hero-tag',  { opacity: 0, y: 36, duration: 0.8 })
-  .from('.hero h1',   { opacity: 0, y: 52, duration: 1.05 }, '-=0.45')
+  .from('.hero h1',   { opacity: 0, y: 52, duration: 1.05 })
   .from('.hero-sub',  { opacity: 0, y: 28, duration: 0.85 }, '-=0.55')
   .from('.hero-btns', { opacity: 0, y: 20, duration: 0.75 }, '-=0.5');
 
